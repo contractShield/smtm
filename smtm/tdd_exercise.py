@@ -20,9 +20,19 @@ class TddExercise:
 
     def initialize_from_server(self):
         """Open Api를 사용해서 데이터를 가져와서 초기화한다"""
-        query_string = {"market": "KRW-BTC", "to": self.to, "count": self.count}
+        query_string = {"market": "KRW-BTC",
+                        "to": self.to, "count": self.count}
 
         response = requests.get(self.URL, params=query_string)
         self.data = response.json()
-        # print(self.data)
-        # print(self.data[0])
+        print(self.data)
+        print(self.data[0])
+
+    def initialize_from_server_1(self):
+        """Open Api를 사용해서 데이터를 가져와서 초기화한다."""
+        query_string = {"market": "KRW-BTC",
+                        "to": self.to, "count": self.count}
+
+        # self.URL -> "wrong_url"
+        response = requests.get("wrong_url", params=query_string)
+        self.data = response.json()
